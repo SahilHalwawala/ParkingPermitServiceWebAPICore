@@ -47,23 +47,23 @@ namespace ParkingPermitService.Controllers
         }
 
         [HttpPut("{id}")]
-public async Task<IActionResult> Update(int id, StudentParkingPermit permit)
-{
-    if (id != permit.Id)
-        return BadRequest("Route id and body id must match.");
+        public async Task<IActionResult> Update(int id, StudentParkingPermit permit)
+        {
+            if (id != permit.Id)
+                return BadRequest("Route id and body id must match.");
 
-    if (!ModelState.IsValid)
-        return BadRequest(ModelState);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-    var exists = await _context.StudentParkingPermits.AnyAsync(p => p.Id == id);
-    if (!exists)
-        return NotFound();
+            var exists = await _context.StudentParkingPermits.AnyAsync(p => p.Id == id);
+            if (!exists)
+                return NotFound();
 
-    _context.Entry(permit).State = EntityState.Modified;
-    await _context.SaveChangesAsync();
+            _context.Entry(permit).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
 
-    return Ok(new { message = "Data updated successfully" });
-}
+            return Ok(new { message = "Data updated successfully" });
+        }
 
 
         [HttpDelete("{id}")]
