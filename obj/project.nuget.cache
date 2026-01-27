@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "vr3PAXSQJ6Q=",
+  "success": true,
+  "projectFilePath": "/Users/sahilhalwawala/Sahil SEM-6/Distributed Applications Development/ParkingService_8909493/ParkingPermitService/ParkingPermitService.csproj",
+  "expectedPackageFiles": [
+    "/Users/sahilhalwawala/.nuget/packages/microsoft.aspnetcore.openapi/10.0.2/microsoft.aspnetcore.openapi.10.0.2.nupkg.sha512",
+    "/Users/sahilhalwawala/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
