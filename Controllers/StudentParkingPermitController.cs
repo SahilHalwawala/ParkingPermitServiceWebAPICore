@@ -5,6 +5,7 @@ using ParkingPermitService.Models;
 
 namespace ParkingPermitService.Controllers
 {
+    //Using the api controller route for declaring
     [Route("api/[controller]")]
     [ApiController]
     public class StudentParkingPermitsController : ControllerBase
@@ -46,23 +47,24 @@ namespace ParkingPermitService.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, StudentParkingPermit permit)
-        {
-            if (id != permit.Id)
-                return BadRequest("Route id and body id must match.");
+public async Task<IActionResult> Update(int id, StudentParkingPermit permit)
+{
+    if (id != permit.Id)
+        return BadRequest("Route id and body id must match.");
 
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+    if (!ModelState.IsValid)
+        return BadRequest(ModelState);
 
-            var exists = await _context.StudentParkingPermits.AnyAsync(p => p.Id == id);
-            if (!exists)
-                return NotFound();
+    var exists = await _context.StudentParkingPermits.AnyAsync(p => p.Id == id);
+    if (!exists)
+        return NotFound();
 
-            _context.Entry(permit).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+    _context.Entry(permit).State = EntityState.Modified;
+    await _context.SaveChangesAsync();
 
-            return NoContent(); // 204
-        }
+    return Ok(new { message = "Data updated successfully" });
+}
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
