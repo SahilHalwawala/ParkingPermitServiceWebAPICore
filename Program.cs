@@ -19,8 +19,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// OPTIONAL: remove this if it gives https warning
-// app.UseHttpsRedirection();
 
 app.UseAuthorization();
 app.MapControllers();

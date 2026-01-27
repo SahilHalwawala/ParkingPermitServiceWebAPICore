@@ -16,14 +16,12 @@ namespace ParkingPermitService.Controllers
             _context = context;
         }
 
-        // GET: api/StudentParkingPermits
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StudentParkingPermit>>> GetAll()
         {
             return await _context.StudentParkingPermits.ToListAsync();
         }
 
-        // GET: api/StudentParkingPermits/5
         [HttpGet("{id}")]
         public async Task<ActionResult<StudentParkingPermit>> GetById(int id)
         {
@@ -35,7 +33,6 @@ namespace ParkingPermitService.Controllers
             return permit;
         }
 
-        // POST: api/StudentParkingPermits
         [HttpPost]
         public async Task<ActionResult<StudentParkingPermit>> Create(StudentParkingPermit permit)
         {
@@ -48,7 +45,6 @@ namespace ParkingPermitService.Controllers
             return CreatedAtAction(nameof(GetById), new { id = permit.Id }, permit);
         }
 
-        // PUT: api/StudentParkingPermits/5
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, StudentParkingPermit permit)
         {
@@ -68,7 +64,6 @@ namespace ParkingPermitService.Controllers
             return NoContent(); // 204
         }
 
-        // DELETE: api/StudentParkingPermits/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -79,7 +74,7 @@ namespace ParkingPermitService.Controllers
             _context.StudentParkingPermits.Remove(permit);
             await _context.SaveChangesAsync();
 
-            return NoContent(); // 204
+            return NoContent();
         }
     }
 }
