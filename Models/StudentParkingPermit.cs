@@ -2,8 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ParkingPermitService.Models
 {
+    //Declaring a class for the data of the parkin
     public class StudentParkingPermit
     {
+        
         public int Id {get;set;}
 
         [Required]
